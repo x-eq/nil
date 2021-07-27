@@ -1,6 +1,8 @@
 do 
     pcall(function()
         spawn(function()
+            --[[ Many anticheat bypasses. ]]--
+                    
             workspace.Services.P:Destroy()
     
             hookfunction(workspace.Services.Kick.InvokeServer, newcclosure(function()
@@ -59,7 +61,9 @@ do
                 pcall(function()
                     if Character:FindFirstChild("Humanoid") then -- Checking if character is still alive.
                         Character:FindFirstChild("UnderWater").Value = true;
-        
+                        
+                        -- Somehow that bypasses anticheat.
+                                        
                         firetouchinterest(Character.HumanoidRootPart, Character.HumanoidRootPart, 0);
                         firetouchinterest(Character.HumanoidRootPart, Character.HumanoidRootPart, 1);
                         firetouchinterest(Character.HumanoidRootPart, Character.UpperTorso, 0);
