@@ -656,7 +656,7 @@ function lib:Window(text, preset)
             end
             
             function toggle:Set(val)
-                if val == true and toggled == false then
+                if val == true then
                     TweenService:Create(
                         Toggle,
                         TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
@@ -689,7 +689,9 @@ function lib:Window(text, preset)
                         .2,
                         true
                     )
-                elseif val == false and toggle == true
+                    toggled = val
+                    pcall(callback, toggled)
+                elseif val == false then
                     TweenService:Create(
                         Toggle,
                         TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
@@ -722,9 +724,9 @@ function lib:Window(text, preset)
                         .2,
                         true
                     )
+                    toggled = val
+                    pcall(callback, toggled)
                 end
-                toggled = not toggled
-                pcall(callback, toggled)
             end
                 return toggled
             end
