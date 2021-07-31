@@ -733,8 +733,7 @@ function lib:Window(text, preset)
             Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
             return toggle
         end
-        function tabcontent:Slider(text, min, max, start, callback)
-            local slider = {};
+                function tabcontent:Slider(text, min, max, start, callback)
             local dragging = false
             local Slider = Instance.new("TextButton")
             local SliderCorner = Instance.new("UICorner")
