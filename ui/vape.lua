@@ -1691,3 +1691,4 @@ function lib:Window(text, preset)
     end
     return tabhold
 end
+return lib
