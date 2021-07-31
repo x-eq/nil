@@ -1,4 +1,4 @@
-local PresetColor = Color3.fromRGB(118, 20, 224)
+
 -- https://v3rmillion.net/showthread.php?tid=1098651&__cf_chl_captcha_tk__=pmd_7d84e6bdd115bcb23fb7b63402be77b1f638ce5e-1627730646-0-gqNtZGzNAs2jcnBszQqi
 local lib = {RainbowColorValue = 0, HueSelectionPosition = 0}
 local UserInputService = game:GetService("UserInputService")
@@ -727,11 +727,11 @@ function lib:Window(text, preset)
                     toggled = val
                     pcall(callback, toggled)
                 end
-            end
-                return toggled
+            return toggled
             end
             
             Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
+            return toggle
         end
         function tabcontent:Slider(text, min, max, start, callback)
             local slider = {};
@@ -1691,5 +1691,3 @@ function lib:Window(text, preset)
     end
     return tabhold
 end
-
-return lib;
