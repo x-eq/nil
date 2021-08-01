@@ -690,6 +690,15 @@ function Flux:Window(text, bottom,mainclr,toclose)
 						TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 						{TextTransparency = 0.3}
 					):Play()
+                    coroutine.wrap(
+                        function()
+                            while wait() do
+                                Title.TextColor3 = PresetColor;
+                                ArrowIco.TextColor3 = PresetColor;
+                                Circle.TextColor3 = PresetColor;
+                            end
+                        end
+                    )()
 					wait(.4)
 					Container.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
 				else
@@ -896,6 +905,14 @@ function Flux:Window(text, bottom,mainclr,toclose)
 						TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 						{BackgroundColor3 =PresetColor}
 					):Play()
+
+                    coroutine.wrap(
+                        function()
+                            while wait() do
+                                ToggleCircle.TextColor3 = PresetColor;
+                            end
+                        end
+                    )()
 				else
 					ToggleCircle:TweenPosition(UDim2.new(0, 0,-0.273, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .3, true)
 					TweenService:Create(
@@ -953,6 +970,16 @@ function Flux:Window(text, bottom,mainclr,toclose)
 					):Play()
 					wait(.4)
 					Container.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
+					
+			        coroutine.wrap(
+                        function()
+                            while wait() do
+                                Title.TextColor3 = PresetColor;
+                                ArrowIco.TextColor3 = PresetColor;
+                                Circle.ImageColor3 = PresetColor;
+                            end
+                        end
+                    )()
 				else
 					Toggle:TweenSize(UDim2.new(0, 457, 0, 43), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
 					TweenService:Create(
@@ -1007,6 +1034,13 @@ function Flux:Window(text, bottom,mainclr,toclose)
 					TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 					{BackgroundColor3 =PresetColor}
 				):Play()
+                coroutine.wrap(
+                    function()
+                        while wait() do
+                            ToggleCircle.BackgroundColor3 = PresetColor;
+                        end
+                    end
+                )()
 				Toggled = not Toggled
 				pcall(callback, Toggled)
 			end
@@ -1218,6 +1252,16 @@ function Flux:Window(text, bottom,mainclr,toclose)
 						TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 						{TextTransparency = 0.3}
 					):Play()
+                    coroutine.wrap(
+                        function()
+                            while wait() do
+                                Title.TextColor3 = PresetColor;
+                                Value.TextColor3 = PresetColor;
+                                ArrowIco.ImageColor3 = PresetColor;
+                                Circle.BackgroundColor3 = PresetColor;
+                            end
+                        end
+                    )()
 					wait(.4)
 					Container.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
 				else
@@ -1481,6 +1525,15 @@ function Flux:Window(text, bottom,mainclr,toclose)
 						TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 						{TextTransparency = 0}
 					):Play()
+                    coroutine.wrap(
+                        function()
+                            while wait() do
+                                Title.TextColor3 = PresetColor;
+                                Value.TextColor3 = PresetColor;
+                                Circle.BackgroundColor3 = PresetColor;
+                            end
+                        end
+                    )()
 					wait(.4)
 					Container.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
 				else
@@ -2084,6 +2137,14 @@ function Flux:Window(text, bottom,mainclr,toclose)
 						TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 						{TextTransparency = 0}
 					):Play()
+                    coroutine.wrap(
+                        function()
+                            while wait() do
+                                Title.TextColor3 = PresetColor;
+                                Value.TextColor3 = PresetColor;
+                            end
+                        end
+                    )()
 					wait(.4)
 					Container.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
 				else
@@ -2277,6 +2338,8 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Confirm.MouseButton1Click:Connect(
 				function()
 					ColorPickerToggled = not ColorPickerToggled
+					ColorSelection.Visible = false
+					HueSelection.Visible = false
 					Colorpicker:TweenSize(UDim2.new(0, 457, 0, 43), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
 					TweenService:Create(
 						Title,
@@ -2788,5 +2851,5 @@ function Flux:Window(text, bottom,mainclr,toclose)
 	end
 	return Tabs
 end
-return Flux
 
+return Flux
