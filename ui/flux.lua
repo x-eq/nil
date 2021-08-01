@@ -1814,7 +1814,7 @@ function Flux:Window(text, bottom,mainclr)
 			Title.Position = UDim2.new(0.0822437406, 0, 0, 0)
 			Title.Size = UDim2.new(0, 113, 0, 42)
 			Title.Font = Enum.Font.Gotham
-			Title.Text = tostring(text)
+			Title.Text = text
 			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title.TextSize = 15.000
 			Title.TextTransparency = 0.300
