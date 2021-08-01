@@ -435,10 +435,18 @@ function Flux:Window(text, bottom,mainclr,toclose)
 		TabTitle.Size = UDim2.new(0, 113, 0, 19)
 		TabTitle.Font = Enum.Font.Gotham
 		TabTitle.Text = text
-		TabTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+		TabTitle.TextColor3 = PresetColor
 		TabTitle.TextSize = 15.000
 		TabTitle.TextXAlignment = Enum.TextXAlignment.Left
 		TabTitle.TextTransparency = .3
+
+        coroutine.wrap(
+            function()
+                while wait() do
+                    TabTitle.TextColor3 = PresetColor
+                end
+            end
+        )()
 		
 		local Container = Instance.new("ScrollingFrame")
 		local ContainerLayout = Instance.new("UIListLayout")
@@ -560,10 +568,18 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.Size = UDim2.new(0, 113, 0, 42)
 			Title.Font = Enum.Font.Gotham
 			Title.Text = text
-			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+			Title.TextColor3 = PresetColor
 			Title.TextSize = 15.000
 			Title.TextTransparency = 0.300
 			Title.TextXAlignment = Enum.TextXAlignment.Left
+
+            coroutine.wrap(
+                function()
+                    while wait() do
+                        Title.TextColor3 = PresetColor
+                    end
+                end
+            )()
 
 			Circle.Name = "Circle"
 			Circle.Parent = Title
@@ -783,10 +799,18 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.Size = UDim2.new(0, 113, 0, 42)
 			Title.Font = Enum.Font.Gotham
 			Title.Text = text
-			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+			Title.TextColor3 = PresetColor
 			Title.TextSize = 15.000
 			Title.TextTransparency = 0.300
 			Title.TextXAlignment = Enum.TextXAlignment.Left
+
+            coroutine.wrap(
+                function()
+                    while wait() do
+                        Title.TextColor3 = PresetColor
+                    end
+                end
+            )()
 
 			Circle.Name = "Circle"
 			Circle.Parent = Title
@@ -1054,10 +1078,18 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.Size = UDim2.new(0, 113, 0, 42)
 			Title.Font = Enum.Font.Gotham
 			Title.Text = text
-			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+			Title.TextColor3 = PresetColor
 			Title.TextSize = 15.000
 			Title.TextTransparency = 0.300
 			Title.TextXAlignment = Enum.TextXAlignment.Left
+
+            coroutine.wrap(
+                function()
+                    while wait() do
+                        Title.TextColor3 = PresetColor
+                    end
+                end
+            )()
 
 			Circle.Name = "Circle"
 			Circle.Parent = Title
@@ -1358,10 +1390,18 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.Size = UDim2.new(0, 113, 0, 42)
 			Title.Font = Enum.Font.Gotham
 			Title.Text = text
-			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+			Title.TextColor3 = PresetColor
 			Title.TextSize = 15.000
 			Title.TextTransparency = 0.300
 			Title.TextXAlignment = Enum.TextXAlignment.Left
+
+            coroutine.wrap(
+                function()
+                    while wait() do
+                        Title.TextColor3 = PresetColor
+                    end
+                end
+            )()
 
 			Circle.Name = "Circle"
 			Circle.Parent = Title
@@ -1853,12 +1893,19 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.Position = UDim2.new(0.0822437406, 0, 0, 0)
 			Title.Size = UDim2.new(0, 113, 0, 42)
 			Title.Font = Enum.Font.Gotham
-			Title.Text = "Colorpicker"
-			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+			Title.Text = tostring(text)
+			Title.TextColor3 = PresetColor
 			Title.TextSize = 15.000
 			Title.TextTransparency = 0.300
 			Title.TextXAlignment = Enum.TextXAlignment.Left
 			
+            coroutine.wrap(
+                function()
+                    while wait() do
+                        Title.TextColor3 = PresetColor
+                    end
+                end
+            )()
 
 			ColorpickerBtn.Name = "ColorpickerBtn"
 			ColorpickerBtn.Parent = Title
