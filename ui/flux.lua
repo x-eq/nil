@@ -439,14 +439,6 @@ function Flux:Window(text, bottom,mainclr,toclose)
 		TabTitle.TextSize = 15.000
 		TabTitle.TextXAlignment = Enum.TextXAlignment.Left
 		TabTitle.TextTransparency = .3
-
-        coroutine.wrap(
-            function()
-                while wait() do
-                    TabTitle.TextColor3 = PresetColor
-                end
-            end
-        )()
 		
 		local Container = Instance.new("ScrollingFrame")
 		local ContainerLayout = Instance.new("UIListLayout")
