@@ -566,13 +566,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.TextTransparency = 0.300
 			Title.TextXAlignment = Enum.TextXAlignment.Left
 
-            coroutine.wrap(
-                function()
-                    while wait() do
-                        Title.TextColor3 = PresetColor
-                    end
-                end
-            )()
+
 
 			Circle.Name = "Circle"
 			Circle.Parent = Title
@@ -797,13 +791,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.TextTransparency = 0.300
 			Title.TextXAlignment = Enum.TextXAlignment.Left
 
-            coroutine.wrap(
-                function()
-                    while wait() do
-                        Title.TextColor3 = PresetColor
-                    end
-                end
-            )()
+
 
 			Circle.Name = "Circle"
 			Circle.Parent = Title
@@ -1076,13 +1064,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.TextTransparency = 0.300
 			Title.TextXAlignment = Enum.TextXAlignment.Left
 
-            coroutine.wrap(
-                function()
-                    while wait() do
-                        Title.TextColor3 = PresetColor
-                    end
-                end
-            )()
+
 
 			Circle.Name = "Circle"
 			Circle.Parent = Title
@@ -1145,6 +1127,15 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			SlideCircle.Size = UDim2.new(0, 11, 0, 11)
 			SlideCircle.Image = "rbxassetid://3570695787"
 			SlideCircle.ImageColor3 = PresetColor
+
+            coroutine.wrap(
+                function()
+                    while wait() do
+                        CurrentValueFrame.BackgroundColor3 = PresetColor
+                        SlideCircle.ImageColor3 = PresetColor
+                    end
+                end
+            )()
 
 			ArrowBtn.Name = "ArrowBtn"
 			ArrowBtn.Parent = Slider
@@ -1379,13 +1370,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.TextTransparency = 0.300
 			Title.TextXAlignment = Enum.TextXAlignment.Left
 
-            coroutine.wrap(
-                function()
-                    while wait() do
-                        Title.TextColor3 = PresetColor
-                    end
-                end
-            )()
+
 
 			Circle.Name = "Circle"
 			Circle.Parent = Title
@@ -1883,13 +1868,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.TextTransparency = 0.300
 			Title.TextXAlignment = Enum.TextXAlignment.Left
 			
-            coroutine.wrap(
-                function()
-                    while wait() do
-                        Title.TextColor3 = PresetColor
-                    end
-                end
-            )()
+
 
 			ColorpickerBtn.Name = "ColorpickerBtn"
 			ColorpickerBtn.Parent = Title
@@ -2381,13 +2360,13 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.TextTransparency = 0.300
 			Title.TextXAlignment = Enum.TextXAlignment.Left
 
-            		coroutine.wrap(
-                		function()
-                    			while wait() do
-                        			Title.TextColor3 = PresetColor
-                    			end
-                		end
-            		)()
+            coroutine.wrap(
+                function()
+                    while wait() do
+                        Title.TextColor3 = PresetColor
+                    end
+                end
+            )()
 			
 			Container.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
 		end
@@ -2439,13 +2418,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.TextTransparency = 0.300
 			Title.TextXAlignment = Enum.TextXAlignment.Left
 
-            coroutine.wrap(
-                function()
-                    while wait() do
-                        Title.TextColor3 = PresetColor
-                    end
-                end
-            )()
+
 
 			Circle.Name = "Circle"
 			Circle.Parent = Title
@@ -2672,13 +2645,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.TextTransparency = 0.300
 			Title.TextXAlignment = Enum.TextXAlignment.Left
 
-            coroutine.wrap(
-                function()
-                    while wait() do
-                        Title.TextColor3 = PresetColor
-                    end
-                end
-            )()
+
 
 			Circle.Name = "Circle"
 			Circle.Parent = Title
