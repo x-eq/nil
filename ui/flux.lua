@@ -7,7 +7,7 @@ local LocalPlayer = game:GetService("Players").LocalPlayer
 local Mouse = LocalPlayer:GetMouse()
 local CloseBind = Enum.KeyCode.RightControl
 
-FluxLib = Instance.new("ScreenGui")
+local FluxLib = Instance.new("ScreenGui")
 FluxLib.Name = "FluxLib"
 FluxLib.Parent = game.CoreGui
 FluxLib.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
@@ -87,7 +87,7 @@ end
 
 
 
-function Flux:Window(text, bottom,mainclr,toclose)
+function Flux:Window(text, bottom,mainclr)
 	PresetColor = mainclr or Color3.fromRGB(66, 134, 255)
 	local fs = false
 	local MainFrame = Instance.new("Frame")
@@ -186,11 +186,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 	MakeDraggable(Drag,MainFrame)
 	MakeDraggable(LeftFrame,MainFrame)
 	MainFrame:TweenSize(UDim2.new(0, 706, 0, 484), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
-
-    function Flux:ChangeColor(c)
-        PresetColor = c;
-    end
-    
+	
 	function Flux:Notification(desc,buttontitle)
 		for i, v in next, MainFrame:GetChildren() do
 			if v.Name == "NotificationBase" then
@@ -398,14 +394,6 @@ function Flux:Window(text, bottom,mainclr,toclose)
 		Tab.TextColor3 = Color3.fromRGB(0, 0, 0)
 		Tab.TextSize = 14.000
 		Tab.BackgroundTransparency = 1
-        
-        coroutine.wrap(
-            function()
-                while wait() do
-                    Tab.BackgroundColor3 = PresetColor
-                end
-            end
-        )()
 
 		TabIcon.Name = "TabIcon"
 		TabIcon.Parent = Tab
@@ -547,8 +535,6 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.TextTransparency = 0.300
 			Title.TextXAlignment = Enum.TextXAlignment.Left
 
-
-
 			Circle.Name = "Circle"
 			Circle.Parent = Title
 			Circle.Active = true
@@ -671,15 +657,6 @@ function Flux:Window(text, bottom,mainclr,toclose)
 						TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 						{TextTransparency = 0.3}
 					):Play()
-                    coroutine.wrap(
-                        function()
-                            while wait() do
-                                Title.TextColor3 = PresetColor;
-                                ArrowIco.TextColor3 = PresetColor;
-                                Circle.TextColor3 = PresetColor;
-                            end
-                        end
-                    )()
 					wait(.4)
 					Container.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
 				else
@@ -780,8 +757,6 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.TextSize = 15.000
 			Title.TextTransparency = 0.300
 			Title.TextXAlignment = Enum.TextXAlignment.Left
-
-
 
 			Circle.Name = "Circle"
 			Circle.Parent = Title
@@ -886,14 +861,6 @@ function Flux:Window(text, bottom,mainclr,toclose)
 						TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 						{BackgroundColor3 =PresetColor}
 					):Play()
-
-                    coroutine.wrap(
-                        function()
-                            while wait() do
-                                ToggleCircle.TextColor3 = PresetColor;
-                            end
-                        end
-                    )()
 				else
 					ToggleCircle:TweenPosition(UDim2.new(0, 0,-0.273, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .3, true)
 					TweenService:Create(
@@ -951,16 +918,6 @@ function Flux:Window(text, bottom,mainclr,toclose)
 					):Play()
 					wait(.4)
 					Container.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
-					
-			        coroutine.wrap(
-                        function()
-                            while wait() do
-                                Title.TextColor3 = PresetColor;
-                                ArrowIco.TextColor3 = PresetColor;
-                                Circle.ImageColor3 = PresetColor;
-                            end
-                        end
-                    )()
 				else
 					Toggle:TweenSize(UDim2.new(0, 457, 0, 43), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
 					TweenService:Create(
@@ -1015,13 +972,6 @@ function Flux:Window(text, bottom,mainclr,toclose)
 					TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 					{BackgroundColor3 =PresetColor}
 				):Play()
-                coroutine.wrap(
-                    function()
-                        while wait() do
-                            ToggleCircle.BackgroundColor3 = PresetColor;
-                        end
-                    end
-                )()
 				Toggled = not Toggled
 				pcall(callback, Toggled)
 			end
@@ -1078,8 +1028,6 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.TextSize = 15.000
 			Title.TextTransparency = 0.300
 			Title.TextXAlignment = Enum.TextXAlignment.Left
-
-
 
 			Circle.Name = "Circle"
 			Circle.Parent = Title
@@ -1142,15 +1090,6 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			SlideCircle.Size = UDim2.new(0, 11, 0, 11)
 			SlideCircle.Image = "rbxassetid://3570695787"
 			SlideCircle.ImageColor3 = PresetColor
-
-            coroutine.wrap(
-                function()
-                    while wait() do
-                        CurrentValueFrame.BackgroundColor3 = PresetColor
-                        SlideCircle.ImageColor3 = PresetColor
-                    end
-                end
-            )()
 
 			ArrowBtn.Name = "ArrowBtn"
 			ArrowBtn.Parent = Slider
@@ -1233,16 +1172,6 @@ function Flux:Window(text, bottom,mainclr,toclose)
 						TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 						{TextTransparency = 0.3}
 					):Play()
-                    coroutine.wrap(
-                        function()
-                            while wait() do
-                                Title.TextColor3 = PresetColor;
-                                Value.TextColor3 = PresetColor;
-                                ArrowIco.ImageColor3 = PresetColor;
-                                Circle.BackgroundColor3 = PresetColor;
-                            end
-                        end
-                    )()
 					wait(.4)
 					Container.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
 				else
@@ -1395,8 +1324,6 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.TextTransparency = 0.300
 			Title.TextXAlignment = Enum.TextXAlignment.Left
 
-
-
 			Circle.Name = "Circle"
 			Circle.Parent = Title
 			Circle.Active = true
@@ -1506,15 +1433,6 @@ function Flux:Window(text, bottom,mainclr,toclose)
 						TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 						{TextTransparency = 0}
 					):Play()
-                    coroutine.wrap(
-                        function()
-                            while wait() do
-                                Title.TextColor3 = PresetColor;
-                                Value.TextColor3 = PresetColor;
-                                Circle.BackgroundColor3 = PresetColor;
-                            end
-                        end
-                    )()
 					wait(.4)
 					Container.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
 				else
@@ -1896,13 +1814,12 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.Position = UDim2.new(0.0822437406, 0, 0, 0)
 			Title.Size = UDim2.new(0, 113, 0, 42)
 			Title.Font = Enum.Font.Gotham
-			Title.Text = text
+			Title.Text = "Colorpicker"
 			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title.TextSize = 15.000
 			Title.TextTransparency = 0.300
 			Title.TextXAlignment = Enum.TextXAlignment.Left
 			
-
 
 			ColorpickerBtn.Name = "ColorpickerBtn"
 			ColorpickerBtn.Parent = Title
@@ -2118,14 +2035,6 @@ function Flux:Window(text, bottom,mainclr,toclose)
 						TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
 						{TextTransparency = 0}
 					):Play()
-                    coroutine.wrap(
-                        function()
-                            while wait() do
-                                Title.TextColor3 = PresetColor;
-                                Value.TextColor3 = PresetColor;
-                            end
-                        end
-                    )()
 					wait(.4)
 					Container.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
 				else
@@ -2319,8 +2228,6 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Confirm.MouseButton1Click:Connect(
 				function()
 					ColorPickerToggled = not ColorPickerToggled
-					ColorSelection.Visible = false
-					HueSelection.Visible = false
 					Colorpicker:TweenSize(UDim2.new(0, 457, 0, 43), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
 					TweenService:Create(
 						Title,
@@ -2403,14 +2310,6 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.TextSize = 15.000
 			Title.TextTransparency = 0.300
 			Title.TextXAlignment = Enum.TextXAlignment.Left
-
-            coroutine.wrap(
-                function()
-                    while wait() do
-                        Title.TextColor3 = PresetColor
-                    end
-                end
-            )()
 			
 			Container.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
 		end
@@ -2461,8 +2360,6 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.TextSize = 15.000
 			Title.TextTransparency = 0.300
 			Title.TextXAlignment = Enum.TextXAlignment.Left
-
-
 
 			Circle.Name = "Circle"
 			Circle.Parent = Title
@@ -2689,8 +2586,6 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.TextTransparency = 0.300
 			Title.TextXAlignment = Enum.TextXAlignment.Left
 
-
-
 			Circle.Name = "Circle"
 			Circle.Parent = Title
 			Circle.Active = true
@@ -2832,5 +2727,4 @@ function Flux:Window(text, bottom,mainclr,toclose)
 	end
 	return Tabs
 end
-
 return Flux, FluxLib
