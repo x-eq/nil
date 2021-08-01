@@ -2381,13 +2381,13 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.TextTransparency = 0.300
 			Title.TextXAlignment = Enum.TextXAlignment.Left
 
-            coroutine.wrap(
-                function()
-                    while wait() do
-                        Title.TextColor3 = PresetColor
-                    end
-                end
-            )()
+            		coroutine.wrap(
+                		function()
+                    			while wait() do
+                        			Title.TextColor3 = PresetColor
+                    			end
+                		end
+            		)()
 			
 			Container.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
 		end
