@@ -145,10 +145,18 @@ function Flux:Window(text, bottom,mainclr,toclose)
 	Title.Size = UDim2.new(0, 111, 0, 34)
 	Title.Font = Enum.Font.GothamBold
 	Title.Text = text
-	Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+	Title.TextColor3 = PresetColor
 	Title.TextSize = 25.000
 	Title.TextXAlignment = Enum.TextXAlignment.Left
-
+	
+	coroutine.wrap(
+                function()
+                    while wait() do
+                        Title.TextColor3 = PresetColor
+                    end
+                end
+            )()
+	
 	BottomText.Name = "BottomText"
 	BottomText.Parent = LeftFrame
 	BottomText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
