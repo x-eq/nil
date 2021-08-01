@@ -209,7 +209,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
     function Flux:ChangeColor(c)
         PresetColor = c;
     end
-	
+    
 	function Flux:Notification(desc,buttontitle)
 		for i, v in next, MainFrame:GetChildren() do
 			if v.Name == "NotificationBase" then
@@ -417,6 +417,14 @@ function Flux:Window(text, bottom,mainclr,toclose)
 		Tab.TextColor3 = Color3.fromRGB(0, 0, 0)
 		Tab.TextSize = 14.000
 		Tab.BackgroundTransparency = 1
+        
+        coroutine.wrap(
+            function()
+                while wait() do
+                    Tab.BackgroundColor3 = PresetColor
+                end
+            end
+        )()
 
 		TabIcon.Name = "TabIcon"
 		TabIcon.Parent = Tab
@@ -460,7 +468,8 @@ function Flux:Window(text, bottom,mainclr,toclose)
 		ContainerLayout.Name = "ContainerLayout"
 		ContainerLayout.Parent = Container
 		ContainerLayout.SortOrder = Enum.SortOrder.LayoutOrder
-
+		ContainerLayout.Padding = UDim.new(0, 15)
+		
 		if fs == false then
 			fs = true
 			TabTitle.TextTransparency = 0
@@ -552,7 +561,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.Size = UDim2.new(0, 113, 0, 42)
 			Title.Font = Enum.Font.Gotham
 			Title.Text = text
-			Title.TextColor3 = PresetColor
+			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title.TextSize = 15.000
 			Title.TextTransparency = 0.300
 			Title.TextXAlignment = Enum.TextXAlignment.Left
@@ -783,7 +792,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.Size = UDim2.new(0, 113, 0, 42)
 			Title.Font = Enum.Font.Gotham
 			Title.Text = text
-			Title.TextColor3 = PresetColor
+			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title.TextSize = 15.000
 			Title.TextTransparency = 0.300
 			Title.TextXAlignment = Enum.TextXAlignment.Left
@@ -874,7 +883,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			ArrowIco.Size = UDim2.new(0, 28, 0, 24)
 			ArrowIco.Image = "http://www.roblox.com/asset/?id=6034818372"
 			ArrowIco.ImageTransparency = .3
-
+			
 		    Toggle.MouseEnter:Connect(function()
 				TweenService:Create(
 					Title,
@@ -1062,7 +1071,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.Size = UDim2.new(0, 113, 0, 42)
 			Title.Font = Enum.Font.Gotham
 			Title.Text = text
-			Title.TextColor3 = PresetColor
+			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title.TextSize = 15.000
 			Title.TextTransparency = 0.300
 			Title.TextXAlignment = Enum.TextXAlignment.Left
@@ -1136,15 +1145,6 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			SlideCircle.Size = UDim2.new(0, 11, 0, 11)
 			SlideCircle.Image = "rbxassetid://3570695787"
 			SlideCircle.ImageColor3 = PresetColor
-
-            coroutine.wrap(
-                function()
-                    while wait() do
-                        CurrentValueFrame.BackgroundColor3 = PresetColor
-                        SlideCircle.ImageColor3 = PresetColor
-                    end
-                end
-            )()
 
 			ArrowBtn.Name = "ArrowBtn"
 			ArrowBtn.Parent = Slider
@@ -1374,7 +1374,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.Size = UDim2.new(0, 113, 0, 42)
 			Title.Font = Enum.Font.Gotham
 			Title.Text = text
-			Title.TextColor3 = PresetColor
+			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title.TextSize = 15.000
 			Title.TextTransparency = 0.300
 			Title.TextXAlignment = Enum.TextXAlignment.Left
@@ -1877,8 +1877,8 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.Position = UDim2.new(0.0822437406, 0, 0, 0)
 			Title.Size = UDim2.new(0, 113, 0, 42)
 			Title.Font = Enum.Font.Gotham
-			Title.Text = tostring(text)
-			Title.TextColor3 = PresetColor
+			Title.Text = "Colorpicker"
+			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title.TextSize = 15.000
 			Title.TextTransparency = 0.300
 			Title.TextXAlignment = Enum.TextXAlignment.Left
@@ -2348,7 +2348,6 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Container.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
 		end
 		function ContainerContent:Label(text)
-            local LabelFunc = {};
 			local Label = Instance.new("TextButton")
 			local LabelCorner = Instance.new("UICorner")
 			local Title = Instance.new("TextLabel")
@@ -2377,24 +2376,12 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.Size = UDim2.new(0, 113, 0, 42)
 			Title.Font = Enum.Font.Gotham
 			Title.Text = text
-			Title.TextColor3 = PresetColor
+			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title.TextSize = 15.000
 			Title.TextTransparency = 0.300
 			Title.TextXAlignment = Enum.TextXAlignment.Left
 			
 			Container.CanvasSize = UDim2.new(0, 0, 0, ContainerLayout.AbsoluteContentSize.Y)
-            function LabelFunc:Change(t, c)
-                if t then
-                    Title.Text = tostring(t)
-                elseif not t and c then 
-                    Title.TextColor3 = c;
-                elseif t and c then
-                    Title.Text = tostring(t)
-                    Title.TextColor3 = c;
-                end
-            end
-
-            return LabelFunc
 		end
 		function ContainerContent:Textbox(text,desc,disapper,callback)
 			if desc == "" then
@@ -2451,7 +2438,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
                     end
                 end
             )()
-            
+
 			Circle.Name = "Circle"
 			Circle.Parent = Title
 			Circle.Active = true
@@ -2672,7 +2659,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 			Title.Size = UDim2.new(0, 113, 0, 42)
 			Title.Font = Enum.Font.Gotham
 			Title.Text = text
-			Title.TextColor3 = PresetColor
+			Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 			Title.TextSize = 15.000
 			Title.TextTransparency = 0.300
 			Title.TextXAlignment = Enum.TextXAlignment.Left
@@ -2827,3 +2814,4 @@ function Flux:Window(text, bottom,mainclr,toclose)
 	return Tabs
 end
 return Flux
+
