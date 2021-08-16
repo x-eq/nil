@@ -368,14 +368,17 @@ if game:GetService("CoreGui"):FindFirstChild("Shadow") then
                 end
             end
  
-            function brah:CreateLabel(str)
-                if not str then
-                    return
+            function brah:CreateLabel(string, color, aligm)
+                if not string then
+                    string = ""
+                end
+                if not aligm then
+                    aligm = "Left"
                 end
                 
                 local Label = Instance.new("Frame")
                 local UICorner_14 = Instance.new("UICorner")
-                local TextLabel_4 = Instance.new("Label")
+                local TextLabel_13 = Instance.new("TextLabel")
                 local UIPadding_12 = Instance.new("UIPadding")
 
                 Label.Name = "Label"
@@ -386,53 +389,68 @@ if game:GetService("CoreGui"):FindFirstChild("Shadow") then
                 Label.Size = UDim2.new(0, 340, 0, 23)
                 
                 UICorner_14.CornerRadius = UDim.new(0, 2)
-                UICorner_14.Parent = Label
+                UICorner_14.Parent = Button
                 
-                TextLabel_4.Parent = Label
-                TextLabel_4.AnchorPoint = Vector2.new(0.5, 0.5)
-                TextLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                TextLabel_4.BackgroundTransparency = 1.000
-                TextLabel_4.BorderSizePixel = 0
-                TextLabel_4.Position = UDim2.new(0.5, 0, 0.5, 0)
-                TextLabel_4.Size = UDim2.new(0, 340, 0, 23)
-                TextLabel_4.Font = Enum.Font.SourceSansSemibold
-                TextLabel_4.TextColor3 = getgenv().Color
-                TextLabel_4.TextSize = 15.000
-                TextLabel_4.Text = str
-                TextLabel_4.TextXAlignment = Enum.TextXAlignment.Left
+                TextLabel_13.Parent = Label
+                TextLabel_13.AnchorPoint = Vector2.new(0.5, 0.5)
+                TextLabel_13.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                TextLabel_13.BackgroundTransparency = 1.000
+                TextLabel_13.BorderSizePixel = 0
+                TextLabel_13.Position = UDim2.new(0.5, 0, 0.5, 0)
+                TextLabel_13.Size = UDim2.new(0, 340, 0, 23)
+                TextLabel_13.Font = Enum.Font.SourceSansSemibold
+                TextLabel_13.TextColor3 = color or getgenv().Color
+                TextLabel_13.TextSize = 15.000
+                TextLabel_13.Text = string
+                TextLabel_13.TextXAlignment = Enum.TextXAlignment[aligm]
                 
-                UIPadding_12.Parent = TextLabel_4
+                UIPadding_12.Parent = TextButton_4
                 UIPadding_12.PaddingLeft = UDim.new(0, 5)
             end
 
-            function brah:CreateSeparator()
-                local Label = Instance.new("Frame")
+            function brah:CreateTallSeparator()
+                local Separator = Instance.new("Frame")
                 local UICorner_14 = Instance.new("UICorner")
 
-                Label.Name = "Label"
-                Label.Parent = Section
-                Label.BackgroundColor3 = getgenv().Color
-                Label.BorderSizePixel = 0
-                Label.Position = UDim2.new(0.0140845068, 0, 0.25, 0)
-                Label.Size = UDim2.new(0, 2, 0, 23)
+                Separator.Name = "TallSeparator"
+                Separator.Parent = Section
+                Separator.BackgroundColor3 = getgenv().Color
+                Separator.BorderSizePixel = 0
+                Separator.Position = UDim2.new(0.0140845068, 0, 0.25, 0)
+                Separator.Size = UDim2.new(0, 355, 0, 1)
                 
                 UICorner_14.CornerRadius = UDim.new(0, 2)
-                UICorner_14.Parent = Label
+                UICorner_14.Parent = Separator
+            end
+            
+            function brah:CreateSeparator()
+                local Separator = Instance.new("Frame")
+                local UICorner_14 = Instance.new("UICorner")
+
+                Separator.Name = "Separator"
+                Separator.Parent = Section
+                Separator.BackgroundColor3 = getgenv().Color
+                Separator.BorderSizePixel = 0
+                Separator.Position = UDim2.new(0.0140845068, 0, 0.25, 0)
+                Separator.Size = UDim2.new(0, 250, 0, 1)
+                
+                UICorner_14.CornerRadius = UDim.new(0, 2)
+                UICorner_14.Parent = Separator
             end
             
             function brah:CreateFatSeparator()
-                local Label = Instance.new("Frame")
+                local FatSeparator = Instance.new("Frame")
                 local UICorner_14 = Instance.new("UICorner")
 
-                Label.Name = "Label"
-                Label.Parent = Section
-                Label.BackgroundColor3 = getgenv().Color
-                Label.BorderSizePixel = 0
-                Label.Position = UDim2.new(0.0140845068, 0, 0.25, 0)
-                Label.Size = UDim2.new(0, 100, 0, 23)
+                FatSeparator.Name = "FatSeparator"
+                FatSeparator.Parent = Section
+                FatSeparator.BackgroundColor3 = getgenv().Color
+                FatSeparator.BorderSizePixel = 0
+                FatSeparator.Position = UDim2.new(0.0140845068, 0, 0.25, 0)
+                FatSeparator.Size = UDim2.new(0, 355, 0, 23)
                 
                 UICorner_14.CornerRadius = UDim.new(0, 2)
-                UICorner_14.Parent = Label
+                UICorner_14.Parent = FatSeparator
             end
 
             function brah:CreateButton(string, callback)
