@@ -330,14 +330,9 @@ if game:GetService("CoreGui"):FindFirstChild("Shadow") then
 
                 local toggle = false
 
-                if def then
+                if def and toggle == false then
                     toggle = true
                     TextButton_3.Text = "✓"
-                    toggle = toggle
-                    pcall(callback, toggle)
-                else
-                    toggle = false
-                    TextButton_3.Text = ""
                     toggle = toggle
                     pcall(callback, toggle)
                 end
@@ -369,10 +364,10 @@ if game:GetService("CoreGui"):FindFirstChild("Shadow") then
                 end)
 
                 function toggle:Set(t)
-                    if t then
+                    if t and toggle == false then
                         toggle = true
                         TextButton_3.Text = "✓"
-                    elseif not t then
+                    elseif not t and toggle == true then
                         toggle = false
                         TextButton_3.Text = ""
                     end
