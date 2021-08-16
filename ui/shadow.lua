@@ -363,13 +363,13 @@ if game:GetService("CoreGui"):FindFirstChild("Shadow") then
                         toggle = true
                         TextButton_3.Text = "✓"
                         toggle = toggle
-                        pcall(callback, toggle)
+                        pcall(callback, true)
                     end
                 end
             end
  
             function brah:CreateLabel(str)
-                if not string then
+                if not str then
                     return
                 end
                 
@@ -414,7 +414,7 @@ if game:GetService("CoreGui"):FindFirstChild("Shadow") then
                 Label.BackgroundColor3 = getgenv().Color
                 Label.BorderSizePixel = 0
                 Label.Position = UDim2.new(0.0140845068, 0, 0.25, 0)
-                Label.Size = UDim2.new(0, 340, 0, 23)
+                Label.Size = UDim2.new(0, 100, 0, 23)
                 
                 UICorner_14.CornerRadius = UDim.new(0, 2)
                 UICorner_14.Parent = Label
