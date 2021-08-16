@@ -257,6 +257,9 @@ if game:GetService("CoreGui"):FindFirstChild("Shadow") then
                 if not string then
                     string = ""
                 end
+                if not def then
+                    def = false
+                end
 
                 local Toggle = Instance.new("Frame")
                 local UICorner_11 = Instance.new("UICorner")
