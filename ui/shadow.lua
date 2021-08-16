@@ -253,106 +253,132 @@ if game:GetService("CoreGui"):FindFirstChild("Shadow") then
  
              local brah = {}
  
-             function brah:CreateToggle(string, callback)
-                 if not string then
-                     string = ""
-                 end
+             function brah:CreateToggle(string, def callback)
+                local toggle = {}
+                if not string then
+                    string = ""
+                end
  
-                 local Toggle = Instance.new("Frame")
-                 local UICorner_11 = Instance.new("UICorner")
-                 local TextButton_2 = Instance.new("TextButton")
-                 local UIPadding_11 = Instance.new("UIPadding")
-                 local Frame_3 = Instance.new("Frame")
-                 local TextButton_3 = Instance.new("TextButton")
-                 local UICorner_12 = Instance.new("UICorner")
-                 local UICorner_13 = Instance.new("UICorner")
- 
-                 Toggle.Name = "Toggle"
-                 Toggle.Parent = Section
-                 Toggle.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-                 Toggle.BorderSizePixel = 0
-                 Toggle.Position = UDim2.new(0.0140845068, 0, 0.25, 0)
-                 Toggle.Size = UDim2.new(0, 340, 0, 23)
-                 
-                 UICorner_11.CornerRadius = UDim.new(0, 2)
-                 UICorner_11.Parent = Toggle
-                 
-                 TextButton_2.Parent = Toggle
-                 TextButton_2.AnchorPoint = Vector2.new(0.5, 0.5)
-                 TextButton_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                 TextButton_2.BackgroundTransparency = 1.000
-                 TextButton_2.BorderSizePixel = 0
-                 TextButton_2.Position = UDim2.new(0.5, 0, 0.5, 0)
-                 TextButton_2.Size = UDim2.new(0, 340, 0, 23)
-                 TextButton_2.Font = Enum.Font.SourceSansSemibold
-                 TextButton_2.Text = string
-                 TextButton_2.TextColor3 = Color3.fromRGB(225, 225, 225)
-                 TextButton_2.TextSize = 14.000
-                 TextButton_2.TextXAlignment = Enum.TextXAlignment.Left
-                 
-                 UIPadding_11.Parent = TextButton_2
-                 UIPadding_11.PaddingLeft = UDim.new(0, 5)
-                 
-                 Frame_3.Parent = TextButton_2
-                 Frame_3.AnchorPoint = Vector2.new(1, 0.5)
-                 Frame_3.BackgroundColor3 = getgenv().Color
-                 Frame_3.BorderSizePixel = 0
-                 Frame_3.Position = UDim2.new(0.985000014, 0, 0.5, 0)
-                 Frame_3.Size = UDim2.new(0, 15, 0, 15)
-                 
-                 TextButton_3.Parent = Frame_3
-                 TextButton_3.AnchorPoint = Vector2.new(0.5, 0.5)
-                 TextButton_3.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-                 TextButton_3.BorderSizePixel = 0
-                 TextButton_3.Position = UDim2.new(0.5, 0, 0.5, 0)
-                 TextButton_3.Size = UDim2.new(0, 13, 0, 13)
-                 TextButton_3.Font = Enum.Font.Gotham
-                 TextButton_3.Text = ""
-                 TextButton_3.TextColor3 = Color3.fromRGB(225, 225, 225)
-                 TextButton_3.TextSize = 14.000
-                 
-                 UICorner_12.CornerRadius = UDim.new(0, 2)
-                 UICorner_12.Parent = TextButton_3
-                 
-                 UICorner_13.CornerRadius = UDim.new(0, 2)
-                 UICorner_13.Parent = Frame_3
- 
-                 TextButton_2.MouseEnter:Connect(function()
-                     local new = TS:Create(Toggle, TI, {BackgroundColor3 = Color3.fromRGB(20, 20, 20)})
-                     new:play()
-                 end)
- 
-                 TextButton_2.MouseLeave:Connect(function()
-                     local old = TS:Create(Toggle, TI, {BackgroundColor3 = Color3.fromRGB(30, 30, 30)})
-                     old:play()
-                 end)
- 
-                 local toggle = false
-                 TextButton_2.MouseButton1Down:Connect(function()
-                     if not toggle then
-                         toggle = true
-                         TextButton_3.Text = "✓"
-                     else
-                         toggle = false
-                         TextButton_3.Text = ""
-                     end
- 
-                     toggle = toggle
-                     pcall(callback, toggle)
-                 end)
- 
-                 TextButton_3.MouseButton1Down:Connect(function()
-                     if not toggle then
-                         toggle = true
-                         TextButton_3.Text = "✓"
-                     else
-                         toggle = false
-                         TextButton_3.Text = ""
-                     end
- 
-                     toggle = toggle
-                     pcall(callback, toggle)
-                 end)
+                local Toggle = Instance.new("Frame")
+                local UICorner_11 = Instance.new("UICorner")
+                local TextButton_2 = Instance.new("TextButton")
+                local UIPadding_11 = Instance.new("UIPadding")
+                local Frame_3 = Instance.new("Frame")
+                local TextButton_3 = Instance.new("TextButton")
+                local UICorner_12 = Instance.new("UICorner")
+                local UICorner_13 = Instance.new("UICorner")
+
+                Toggle.Name = "Toggle"
+                Toggle.Parent = Section
+                Toggle.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+                Toggle.BorderSizePixel = 0
+                Toggle.Position = UDim2.new(0.0140845068, 0, 0.25, 0)
+                Toggle.Size = UDim2.new(0, 340, 0, 23)
+                
+                UICorner_11.CornerRadius = UDim.new(0, 2)
+                UICorner_11.Parent = Toggle
+                
+                TextButton_2.Parent = Toggle
+                TextButton_2.AnchorPoint = Vector2.new(0.5, 0.5)
+                TextButton_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                TextButton_2.BackgroundTransparency = 1.000
+                TextButton_2.BorderSizePixel = 0
+                TextButton_2.Position = UDim2.new(0.5, 0, 0.5, 0)
+                TextButton_2.Size = UDim2.new(0, 340, 0, 23)
+                TextButton_2.Font = Enum.Font.SourceSansSemibold
+                TextButton_2.Text = string
+                TextButton_2.TextColor3 = Color3.fromRGB(225, 225, 225)
+                TextButton_2.TextSize = 14.000
+                TextButton_2.TextXAlignment = Enum.TextXAlignment.Left
+                
+                UIPadding_11.Parent = TextButton_2
+                UIPadding_11.PaddingLeft = UDim.new(0, 5)
+                
+                Frame_3.Parent = TextButton_2
+                Frame_3.AnchorPoint = Vector2.new(1, 0.5)
+                Frame_3.BackgroundColor3 = getgenv().Color
+                Frame_3.BorderSizePixel = 0
+                Frame_3.Position = UDim2.new(0.985000014, 0, 0.5, 0)
+                Frame_3.Size = UDim2.new(0, 15, 0, 15)
+                
+                TextButton_3.Parent = Frame_3
+                TextButton_3.AnchorPoint = Vector2.new(0.5, 0.5)
+                TextButton_3.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+                TextButton_3.BorderSizePixel = 0
+                TextButton_3.Position = UDim2.new(0.5, 0, 0.5, 0)
+                TextButton_3.Size = UDim2.new(0, 13, 0, 13)
+                TextButton_3.Font = Enum.Font.Gotham
+                TextButton_3.Text = ""
+                TextButton_3.TextColor3 = Color3.fromRGB(225, 225, 225)
+                TextButton_3.TextSize = 14.000
+                
+                UICorner_12.CornerRadius = UDim.new(0, 2)
+                UICorner_12.Parent = TextButton_3
+                
+                UICorner_13.CornerRadius = UDim.new(0, 2)
+                UICorner_13.Parent = Frame_3
+
+                TextButton_2.MouseEnter:Connect(function()
+                    local new = TS:Create(Toggle, TI, {BackgroundColor3 = Color3.fromRGB(20, 20, 20)})
+                    new:play()
+                end)
+
+                TextButton_2.MouseLeave:Connect(function()
+                    local old = TS:Create(Toggle, TI, {BackgroundColor3 = Color3.fromRGB(30, 30, 30)})
+                    old:play()
+                end)
+
+                local toggle = false
+
+                if def then
+                    toggle = true
+                    TextButton_3.Text = "✓"
+                    toggle = toggle
+                    pcall(callback, toggle)
+                else
+                    toggle = false
+                    TextButton_3.Text = ""
+                    toggle = toggle
+                    pcall(callback, toggle)
+                end
+
+                TextButton_2.MouseButton1Down:Connect(function()
+                    if not toggle then
+                        toggle = true
+                        TextButton_3.Text = "✓"
+                    else
+                        toggle = false
+                        TextButton_3.Text = ""
+                    end
+
+                    toggle = toggle
+                    pcall(callback, toggle)
+                end)
+
+                TextButton_3.MouseButton1Down:Connect(function()
+                    if not toggle then
+                        toggle = true
+                        TextButton_3.Text = "✓"
+                    else
+                        toggle = false
+                        TextButton_3.Text = ""
+                    end
+
+                    toggle = toggle
+                    pcall(callback, toggle)
+                end)
+
+                function toggle:Set(t)
+                    if t then
+                        toggle = true
+                        TextButton_3.Text = "✓"
+                    elseif not t then
+                        toggle = false
+                        TextButton_3.Text = ""
+                    end
+                    toggle = toggle
+                    pcall(callback, toggle)
+                end
              end
  
              function brah:CreateButton(string, callback)
