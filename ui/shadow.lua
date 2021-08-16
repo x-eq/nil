@@ -502,7 +502,7 @@ if game:GetService("CoreGui"):FindFirstChild("Shadow") then
                      settings = {min = 0, max = 10}
                  end
  
-                 local min, max, default, precise, count = settings.min, settings.max, settings.default, settings.precise, settings.count
+                 local min, max, default, precise, count, suffix = settings.min, settings.max, settings.default, settings.precise, settings.count, settings.suffix
  
                  local Slider_2 = Instance.new("Frame")
                  local UICorner_18 = Instance.new("UICorner")
@@ -577,7 +577,7 @@ if game:GetService("CoreGui"):FindFirstChild("Shadow") then
                  TextButton_7.Size = UDim2.new(0, 323, 0, 13)
                  TextButton_7.ZIndex = 3
                  TextButton_7.Font = Enum.Font.Gotham
-                 TextButton_7.Text = "0"
+                 TextButton_7.Text = "0"..suffix
                  TextButton_7.TextColor3 = Color3.fromRGB(225, 225, 225)
                  TextButton_7.TextSize = 14.000
                  
@@ -613,9 +613,9 @@ if game:GetService("CoreGui"):FindFirstChild("Shadow") then
                          Fill:TweenSize(UDim2.new(Percent, 0, 1, 0), "Out", "Sine", 0.05)
  
                          if precise then 
-                             TextButton_7.Text = roundTo((Percent * (max - min) + min), count or 0.5)
+                             TextButton_7.Text = roundTo((Percent * (max - min) + min), count or 0.5)..suffix
                          else
-                             TextButton_7.Text = math.floor((Percent * (max - min) + min))
+                             TextButton_7.Text = math.floor((Percent * (max - min) + min))..suffix
                          end
  
                          pcall(callback, tonumber(TextButton_7.Text))
@@ -631,7 +631,7 @@ if game:GetService("CoreGui"):FindFirstChild("Shadow") then
  default = default or min
          local percent = math.clamp((tonumber(default) - min) / (max - min), 0, 1)
          
-         TextButton_7.Text = default or min
+         TextButton_7.Text = default or min ..suffix
          Fill.Size = UDim2.new(percent, 0, 1, 0)
  pcall(callback, tonumber(TextButton_7.Text))
              end
