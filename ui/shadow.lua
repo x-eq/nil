@@ -496,9 +496,9 @@ if game:GetService("CoreGui"):FindFirstChild("Shadow") then
                  end)
              end
              
-             function brah:CreateSlider(string, settings, callback)
-                 if not string or not settings then
-                     string = ""
+             function brah:CreateSlider(str, settings, callback)
+                 if not str or not settings then
+                     str = ""
                      settings = {min = 0, max = 10}
                  end
             
@@ -539,7 +539,7 @@ if game:GetService("CoreGui"):FindFirstChild("Shadow") then
                  TextButton_6.Position = UDim2.new(0.5, 0, 0.5, 0)
                  TextButton_6.Size = UDim2.new(0, 340, 0, 20)
                  TextButton_6.Font = Enum.Font.SourceSansSemibold
-                 TextButton_6.Text = "Slider"
+                 TextButton_6.Text = str
                  TextButton_6.TextColor3 = Color3.fromRGB(225, 225, 225)
                  TextButton_6.TextSize = 14.000
                  TextButton_6.TextXAlignment = Enum.TextXAlignment.Left
