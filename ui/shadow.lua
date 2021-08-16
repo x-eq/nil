@@ -254,11 +254,10 @@ if game:GetService("CoreGui"):FindFirstChild("Shadow") then
              local brah = {}
  
              function brah:CreateToggle(string, def, callback)
-                local toggle = {}
                 if not string then
                     string = ""
                 end
- 
+
                 local Toggle = Instance.new("Frame")
                 local UICorner_11 = Instance.new("UICorner")
                 local TextButton_2 = Instance.new("TextButton")
@@ -307,7 +306,7 @@ if game:GetService("CoreGui"):FindFirstChild("Shadow") then
                 TextButton_3.BorderSizePixel = 0
                 TextButton_3.Position = UDim2.new(0.5, 0, 0.5, 0)
                 TextButton_3.Size = UDim2.new(0, 13, 0, 13)
-                TextButton_3.Font = Enum.Font.Gotham
+                TextButton_3.Font = Enum.Font.Code
                 TextButton_3.Text = ""
                 TextButton_3.TextColor3 = Color3.fromRGB(225, 225, 225)
                 TextButton_3.TextSize = 14.000
@@ -329,14 +328,7 @@ if game:GetService("CoreGui"):FindFirstChild("Shadow") then
                 end)
 
                 local toggle = false
-
-                if def and toggle == false then
-                    toggle = true
-                    TextButton_3.Text = "✓"
-                    toggle = toggle
-                    pcall(callback, toggle)
-                end
-
+                
                 TextButton_2.MouseButton1Down:Connect(function()
                     if not toggle then
                         toggle = true
@@ -362,19 +354,16 @@ if game:GetService("CoreGui"):FindFirstChild("Shadow") then
                     toggle = toggle
                     pcall(callback, toggle)
                 end)
-
-                function toggle:Set(t)
-                    if t and toggle == false then
+                
+                if def then
+                    if not toggle then
                         toggle = true
                         TextButton_3.Text = "✓"
-                    elseif not t and toggle == true then
-                        toggle = false
-                        TextButton_3.Text = ""
+                        toggle = toggle
+                        pcall(callback, toggle)
                     end
-                    toggle = toggle
-                    pcall(callback, toggle)
                 end
-             end
+            end
  
              function brah:CreateButton(string, callback)
                  if not string then
