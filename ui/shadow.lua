@@ -414,6 +414,21 @@ if game:GetService("CoreGui"):FindFirstChild("Shadow") then
                 Label.BackgroundColor3 = getgenv().Color
                 Label.BorderSizePixel = 0
                 Label.Position = UDim2.new(0.0140845068, 0, 0.25, 0)
+                Label.Size = UDim2.new(0, 2, 0, 23)
+                
+                UICorner_14.CornerRadius = UDim.new(0, 2)
+                UICorner_14.Parent = Label
+            end
+            
+            function brah:CreateFatSeparator()
+                local Label = Instance.new("Frame")
+                local UICorner_14 = Instance.new("UICorner")
+
+                Label.Name = "Label"
+                Label.Parent = Section
+                Label.BackgroundColor3 = getgenv().Color
+                Label.BorderSizePixel = 0
+                Label.Position = UDim2.new(0.0140845068, 0, 0.25, 0)
                 Label.Size = UDim2.new(0, 100, 0, 23)
                 
                 UICorner_14.CornerRadius = UDim.new(0, 2)
