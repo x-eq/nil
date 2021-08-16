@@ -330,7 +330,7 @@ if game:GetService("CoreGui"):FindFirstChild("Shadow") then
                     old:play()
                 end)
 
-                local toggle = false
+                toggle = false
                 
                 TextButton_2.MouseButton1Down:Connect(function()
                     if not toggle then
@@ -363,7 +363,7 @@ if game:GetService("CoreGui"):FindFirstChild("Shadow") then
                         toggle = true
                         TextButton_3.Text = "✓"
                         toggle = toggle
-                        pcall(callback, true)
+                        pcall(callback, toggle)
                     end
                 end
             end
