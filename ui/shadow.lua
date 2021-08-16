@@ -253,7 +253,7 @@ if game:GetService("CoreGui"):FindFirstChild("Shadow") then
  
              local brah = {}
  
-             function brah:CreateToggle(string, def callback)
+             function brah:CreateToggle(string, def, callback)
                 local toggle = {}
                 if not string then
                     string = ""
