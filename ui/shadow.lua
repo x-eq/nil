@@ -368,14 +368,14 @@ if game:GetService("CoreGui"):FindFirstChild("Shadow") then
                 end
             end
  
-            function brah:CreateLabel(options)
-                if not options then
+            function brah:CreateLabel(str)
+                if not string then
                     return
                 end
                 
                 local Label = Instance.new("Frame")
                 local UICorner_14 = Instance.new("UICorner")
-                local TextLabel_4 = Instance.new("TextLabel")
+                local TextLabel_4 = Instance.new("Label")
                 local UIPadding_12 = Instance.new("UIPadding")
 
                 Label.Name = "Label"
@@ -395,28 +395,28 @@ if game:GetService("CoreGui"):FindFirstChild("Shadow") then
                 TextLabel_4.BorderSizePixel = 0
                 TextLabel_4.Position = UDim2.new(0.5, 0, 0.5, 0)
                 TextLabel_4.Size = UDim2.new(0, 340, 0, 23)
-                TextLabel_4.Font = options.font or Enum.Font.SourceSansSemibold
-                TextLabel_4.TextColor3 = options.textcolor or getgenv().Color
-                TextLabel_4.TextSize = options.textsize or 14.000
-                TextLabel_4.Text = options.text
-                TextLabel_4.TextXAlignment = Enum.TextXAlignment[options.textalig] or Enum.TextXAlignment.Left
+                TextLabel_4.Font = Enum.Font.SourceSansSemibold
+                TextLabel_4.TextColor3 = getgenv().Color
+                TextLabel_4.TextSize = 15.000
+                TextLabel_4.Text = str
+                TextLabel_4.TextXAlignment = Enum.TextXAlignment.Left
                 
                 UIPadding_12.Parent = TextLabel_4
                 UIPadding_12.PaddingLeft = UDim.new(0, 5)
             end
-            
-            function brah:CreateSeparator(color, rad)
+
+            function brah:CreateSeparator()
                 local Label = Instance.new("Frame")
                 local UICorner_14 = Instance.new("UICorner")
 
-                Label.Name = "Separator"
+                Label.Name = "Label"
                 Label.Parent = Section
-                Label.BackgroundColor3 = color or Color3.fromRGB(30, 30, 30)
+                Label.BackgroundColor3 = getgenv().Color
                 Label.BorderSizePixel = 0
                 Label.Position = UDim2.new(0.0140845068, 0, 0.25, 0)
                 Label.Size = UDim2.new(0, 340, 0, 23)
                 
-                UICorner_14.CornerRadius = rad or UDim.new(0, 3)
+                UICorner_14.CornerRadius = UDim.new(0, 2)
                 UICorner_14.Parent = Label
             end
 
