@@ -368,62 +368,99 @@ if game:GetService("CoreGui"):FindFirstChild("Shadow") then
                 end
             end
  
-             function brah:CreateButton(string, callback)
-                 if not string then
-                     string = ""
-                 end
-                 
-                 local Button = Instance.new("Frame")
-                 local UICorner_14 = Instance.new("UICorner")
-                 local TextButton_4 = Instance.new("TextButton")
-                 local UIPadding_12 = Instance.new("UIPadding")
- 
-                 Button.Name = "Button"
-                 Button.Parent = Section
-                 Button.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-                 Button.BorderSizePixel = 0
-                 Button.Position = UDim2.new(0.0140845068, 0, 0.25, 0)
-                 Button.Size = UDim2.new(0, 340, 0, 23)
-                 
-                 UICorner_14.CornerRadius = UDim.new(0, 2)
-                 UICorner_14.Parent = Button
-                 
-                 TextButton_4.Parent = Button
-                 TextButton_4.AnchorPoint = Vector2.new(0.5, 0.5)
-                 TextButton_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                 TextButton_4.BackgroundTransparency = 1.000
-                 TextButton_4.BorderSizePixel = 0
-                 TextButton_4.Position = UDim2.new(0.5, 0, 0.5, 0)
-                 TextButton_4.Size = UDim2.new(0, 340, 0, 23)
-                 TextButton_4.Font = Enum.Font.SourceSansSemibold
-                 TextButton_4.TextColor3 = Color3.fromRGB(225, 225, 225)
-                 TextButton_4.TextSize = 14.000
-                 TextButton_4.Text = string
-                 TextButton_4.TextXAlignment = Enum.TextXAlignment.Left
-                 
-                 UIPadding_12.Parent = TextButton_4
-                 UIPadding_12.PaddingLeft = UDim.new(0, 5)
- 
-                 TextButton_4.MouseButton1Down:Connect(function()
-                     local new = TS:Create(TextButton_4, TI, {TextColor3 = getgenv().Color})
-                     new:play()
-                     wait(0.15)
-                     local old = TS:Create(TextButton_4, TI, {TextColor3 = Color3.fromRGB(225, 225, 225)})
-                     old:play()
- 
-                     pcall(callback)
-                 end)
- 
-                 TextButton_4.MouseEnter:Connect(function()
-                     local new = TS:Create(Button, TI, {BackgroundColor3 = Color3.fromRGB(20, 20, 20)})
-                     new:play()
-                 end)
- 
-                 TextButton_4.MouseLeave:Connect(function()
-                     local old = TS:Create(Button, TI, {BackgroundColor3 = Color3.fromRGB(30, 30, 30)})
-                     old:play()
-                 end)
-             end
+            function brah:CreateLabel(string)
+                if not string then
+                    return
+                end
+                
+                local Label = Instance.new("Frame")
+                local UICorner_14 = Instance.new("UICorner")
+                local TextLabel_4 = Instance.new("TextLabel")
+                local UIPadding_12 = Instance.new("UIPadding")
+
+                Label.Name = "Label"
+                Label.Parent = Section
+                Label.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+                Label.BorderSizePixel = 0
+                Label.Position = UDim2.new(0.0140845068, 0, 0.25, 0)
+                Label.Size = UDim2.new(0, 340, 0, 23)
+                
+                UICorner_14.CornerRadius = UDim.new(0, 2)
+                UICorner_14.Parent = Label
+                
+                TextLabel_4.Parent = Label
+                TextLabel_4.AnchorPoint = Vector2.new(0.5, 0.5)
+                TextLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                TextLabel_4.BackgroundTransparency = 1.000
+                TextLabel_4.BorderSizePixel = 0
+                TextLabel_4.Position = UDim2.new(0.5, 0, 0.5, 0)
+                TextLabel_4.Size = UDim2.new(0, 340, 0, 23)
+                TextLabel_4.Font = Enum.Font.SourceSansSemibold
+                TextLabel_4.TextColor3 = getgenv().Color
+                TextLabel_4.TextSize = 14.000
+                TextLabel_4.Text = string
+                TextLabel_4.TextXAlignment = Enum.TextXAlignment.Left
+                
+                UIPadding_12.Parent = TextLabel_4
+                UIPadding_12.PaddingLeft = UDim.new(0, 5)
+            end
+
+            function brah:CreateButton(string, callback)
+                if not string then
+                    string = ""
+                end
+                
+                local Button = Instance.new("Frame")
+                local UICorner_14 = Instance.new("UICorner")
+                local TextButton_4 = Instance.new("TextButton")
+                local UIPadding_12 = Instance.new("UIPadding")
+
+                Button.Name = "Button"
+                Button.Parent = Section
+                Button.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+                Button.BorderSizePixel = 0
+                Button.Position = UDim2.new(0.0140845068, 0, 0.25, 0)
+                Button.Size = UDim2.new(0, 340, 0, 23)
+                
+                UICorner_14.CornerRadius = UDim.new(0, 2)
+                UICorner_14.Parent = Button
+                
+                TextButton_4.Parent = Button
+                TextButton_4.AnchorPoint = Vector2.new(0.5, 0.5)
+                TextButton_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                TextButton_4.BackgroundTransparency = 1.000
+                TextButton_4.BorderSizePixel = 0
+                TextButton_4.Position = UDim2.new(0.5, 0, 0.5, 0)
+                TextButton_4.Size = UDim2.new(0, 340, 0, 23)
+                TextButton_4.Font = Enum.Font.SourceSansSemibold
+                TextButton_4.TextColor3 = Color3.fromRGB(225, 225, 225)
+                TextButton_4.TextSize = 14.000
+                TextButton_4.Text = string
+                TextButton_4.TextXAlignment = Enum.TextXAlignment.Left
+                
+                UIPadding_12.Parent = TextButton_4
+                UIPadding_12.PaddingLeft = UDim.new(0, 5)
+
+                TextButton_4.MouseButton1Down:Connect(function()
+                    local new = TS:Create(TextButton_4, TI, {TextColor3 = getgenv().Color})
+                    new:play()
+                    wait(0.15)
+                    local old = TS:Create(TextButton_4, TI, {TextColor3 = Color3.fromRGB(225, 225, 225)})
+                    old:play()
+
+                    pcall(callback)
+                end)
+
+                TextButton_4.MouseEnter:Connect(function()
+                    local new = TS:Create(Button, TI, {BackgroundColor3 = Color3.fromRGB(20, 20, 20)})
+                    new:play()
+                end)
+
+                TextButton_4.MouseLeave:Connect(function()
+                    local old = TS:Create(Button, TI, {BackgroundColor3 = Color3.fromRGB(30, 30, 30)})
+                    old:play()
+                end)
+            end
  
              function brah:CreateBox(string, default, callback)
                  if not string or not default then
