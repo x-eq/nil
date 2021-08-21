@@ -1703,4 +1703,4 @@ function lib:Window(text, preset)
     return tabhold
 end
 
-return ui
+return lib
