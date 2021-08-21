@@ -1517,13 +1517,13 @@ function lib:Window(text, preset)
             Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
         end
 
-        function tabcontent:Line()
+        function tabcontent:Label(text)
             local Frame = Instance.new("Frame")
 
             Frame.Name = "Frame"
             Frame.Parent = Tab
-            Frame.BackgroundColor3 = PresetColor
-            Frame.Size = UDim2.new(0, 363, 0, 1)
+            Frame.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+            Frame.Size = UDim2.new(0, 363, 0, 42)
 
             Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
         end
