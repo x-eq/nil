@@ -734,7 +734,6 @@ function lib:Window(text, preset)
             return toggle
         end
         function tabcontent:Slider(text, min, max, start, suffix, callback)
-            local Slider = {}
             local dragging = false
             local Slider = Instance.new("TextButton")
             local SliderCorner = Instance.new("UICorner")
@@ -778,7 +777,7 @@ function lib:Window(text, preset)
             SliderValue.Position = UDim2.new(0.0358126722, 0, 0, 0)
             SliderValue.Size = UDim2.new(0, 335, 0, 42)
             SliderValue.Font = Enum.Font.Gotham
-            SliderValue.Text = tostring(start and math.floor((start / max) * (max - min) + min) or 0)..tostring(suffix)
+            SliderValue.Text = tostring(start and math.floor((start / max) * (max - min) + min) or 0)..suffix
             SliderValue.TextColor3 = Color3.fromRGB(255, 255, 255)
             SliderValue.TextSize = 14.000
             SliderValue.TextXAlignment = Enum.TextXAlignment.Right
@@ -801,6 +800,7 @@ function lib:Window(text, preset)
             SlideCircle.BackgroundColor3 = PresetColor
             SlideCircle.BackgroundTransparency = 1.000
             SlideCircle.Position = UDim2.new((start or 0) / max, -6, -1.30499995, 0)
+        
             SlideCircle.Size = UDim2.new(0, 11, 0, 11)
             SlideCircle.Image = "rbxassetid://3570695787"
             SlideCircle.ImageColor3 = PresetColor
