@@ -1516,6 +1516,18 @@ function lib:Window(text, preset)
             )
             Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
         end
+
+        function tabcontent:Line()
+            local Frame = Instance.new("Frame")
+
+            Frame.Name = "Frame"
+            Frame.Parent = Tab
+            Frame.BackgroundColor3 = PresetColor
+            Frame.Size = UDim2.new(0, 363, 0, 1)
+
+            Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
+        end
+
         function tabcontent:Label(text)
             local Label = Instance.new("TextButton")
             local LabelCorner = Instance.new("UICorner")
@@ -1690,4 +1702,5 @@ function lib:Window(text, preset)
     end
     return tabhold
 end
-return lib
+
+return ui
