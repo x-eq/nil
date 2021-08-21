@@ -733,7 +733,7 @@ function lib:Window(text, preset)
             Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
             return toggle
         end
-                function tabcontent:Slider(text, min, max, start, callback)
+        function tabcontent:Slider(text, min, max, start, suffix, callback)
             local dragging = false
             local Slider = Instance.new("TextButton")
             local SliderCorner = Instance.new("UICorner")
@@ -777,7 +777,7 @@ function lib:Window(text, preset)
             SliderValue.Position = UDim2.new(0.0358126722, 0, 0, 0)
             SliderValue.Size = UDim2.new(0, 335, 0, 42)
             SliderValue.Font = Enum.Font.Gotham
-            SliderValue.Text = tostring(start and math.floor((start / max) * (max - min) + min) or 0)
+            SliderValue.Text = tostring(start..suffix and math.floor((start / max) * (max - min) + min) or 0)
             SliderValue.TextColor3 = Color3.fromRGB(255, 255, 255)
             SliderValue.TextSize = 14.000
             SliderValue.TextXAlignment = Enum.TextXAlignment.Right
@@ -831,7 +831,7 @@ function lib:Window(text, preset)
                 CurrentValueFrame:TweenSize(pos1, "Out", "Sine", 0.1, true)
                 SlideCircle:TweenPosition(pos, "Out", "Sine", 0.1, true)
                 local value = math.floor(((pos.X.Scale * max) / max) * (max - min) + min)
-                SliderValue.Text = tostring(value)
+                SliderValue.Text = tostring(value)..suffix
                 pcall(callback, value)
             end
             SlideCircle.InputBegan:Connect(
@@ -1517,13 +1517,13 @@ function lib:Window(text, preset)
             Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
         end
 
-        function tabcontent:Label(text)
+        function tabcontent:Line()
             local Frame = Instance.new("Frame")
 
             Frame.Name = "Frame"
             Frame.Parent = Tab
-            Frame.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-            Frame.Size = UDim2.new(0, 363, 0, 42)
+            Frame.BackgroundColor3 = PresetColor
+            Frame.Size = UDim2.new(0, 363, 0, 1)
 
             Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
         end
