@@ -700,7 +700,7 @@ function lib:Window(text, preset)
             SliderValue.Position = UDim2.new(0.0358126722, 0, 0, 0)
             SliderValue.Size = UDim2.new(0, 335, 0, 42)
             SliderValue.Font = Enum.Font.Gotham
-            SliderValue.Text = tostring(start..suffix and math.floor((start / max) * (max - min) + min) or 0)
+            SliderValue.Text = tostring(start and math.floor((start / max) * (max - min) + min) or 0)..suffix
             SliderValue.TextColor3 = Color3.fromRGB(255, 255, 255)
             SliderValue.TextSize = 14.000
             SliderValue.TextXAlignment = Enum.TextXAlignment.Right
@@ -1625,5 +1625,4 @@ function lib:Window(text, preset)
     end
     return tabhold
 end
-
-return lib
+return lib;
