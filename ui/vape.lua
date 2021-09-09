@@ -89,7 +89,7 @@ function lib:Window(text, preset)
     PresetColor = preset or Color3.fromRGB(44, 120, 224)
     fs = false
     local Main = Instance.new("Frame")
-    local TabHold = Instance.new("Frame")
+    local TabHold = Instance.new("ScrollingFrame")
     local TabHoldLayout = Instance.new("UIListLayout")
     local Title = Instance.new("TextLabel")
     local TabFolder = Instance.new("Folder")
@@ -111,7 +111,9 @@ function lib:Window(text, preset)
     TabHold.BackgroundTransparency = 1.000
     TabHold.Position = UDim2.new(0.0339285731, 0, 0.147335425, 0)
     TabHold.Size = UDim2.new(0, 107, 0, 254)
-
+    TabHold.CanvasSize = UDim2.new(0, 0, 0, 0)
+    TabHold.ScrollBarThickness = 3
+    
     TabHoldLayout.Name = "TabHoldLayout"
     TabHoldLayout.Parent = TabHold
     TabHoldLayout.SortOrder = Enum.SortOrder.LayoutOrder
@@ -352,7 +354,7 @@ function lib:Window(text, preset)
         TabLayout.Parent = Tab
         TabLayout.SortOrder = Enum.SortOrder.LayoutOrder
         TabLayout.Padding = UDim.new(0, 6)
-
+        
         if fs == false then
             fs = true
             TabBtnIndicator.Size = UDim2.new(0, 13, 0, 2)
@@ -1621,6 +1623,7 @@ function lib:Window(text, preset)
                 end
             )
         end
+        TabHold.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
         return tabcontent
     end
     return tabhold
