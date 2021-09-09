@@ -1623,7 +1623,7 @@ function lib:Window(text, preset)
                 end
             )
         end
-        TabHold.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
+        TabHold.CanvasSize = UDim2.new(0, 0, 0, TabLayout.TabHoldLayout.Y)
         return tabcontent
     end
     return tabhold
