@@ -1,3 +1,4 @@
+--/* Lib *\--
 local PresetColor = Color3.fromRGB(118, 20, 224)
 -- https://v3rmillion.net/showthread.php?tid=1098651&__cf_chl_captcha_tk__=pmd_7d84e6bdd115bcb23fb7b63402be77b1f638ce5e-1627730646-0-gqNtZGzNAs2jcnBszQqi
 local lib = {RainbowColorValue = 0, HueSelectionPosition = 0}
@@ -109,10 +110,11 @@ function lib:Window(text, preset)
     TabHold.Parent = Main
     TabHold.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     TabHold.BackgroundTransparency = 1.000
+    TabHold.BorderSizePixel = 0
     TabHold.Position = UDim2.new(0.0339285731, 0, 0.147335425, 0)
     TabHold.Size = UDim2.new(0, 107, 0, 254)
     TabHold.CanvasSize = UDim2.new(0, 0, 0, 0)
-    TabHold.ScrollBarThickness = 3
+    TabHold.ScrollBarThickness = 1
     
     TabHoldLayout.Name = "TabHoldLayout"
     TabHoldLayout.Parent = TabHold
@@ -1623,9 +1625,9 @@ function lib:Window(text, preset)
                 end
             )
         end
-        TabHold.CanvasSize = UDim2.new(0, 0, 0, TabLayout.TabHoldLayout.Y)
+        TabHold.CanvasSize = UDim2.new(0, 0, 0, TabHoldLayout.AbsoluteContentSize.Y)
         return tabcontent
     end
     return tabhold
 end
-return lib;
+return lib
