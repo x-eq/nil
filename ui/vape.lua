@@ -1451,6 +1451,14 @@ function lib:Window(text, preset)
             Frame.Parent = Tab
             Frame.BackgroundColor3 = PresetColor
             Frame.Size = UDim2.new(0, 363, 0, 1)
+            
+            coroutine.wrap(
+                function()
+                    while wait() do
+                         Frame.BackgroundColor3 = PresetColor
+                    end
+                end
+            )()
 
             Tab.CanvasSize = UDim2.new(0, 0, 0, TabLayout.AbsoluteContentSize.Y)
         end
